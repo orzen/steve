@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+message Foo {
+	option operations = "set,get,list,delete";
+	message Meta {
+		int32 id = 1;
+	}
+	Meta meta = 1;
+	string bar = 2;
+	int32 baz = 3;
+}
+
+message Bar {
+	option operations = "set,delete";
+	enum BarStatus {
+		option enumOpt = true;
+		NOT_OK = 0;
+		OK = 1;
+	}
+	message Meta {
+		int32 id = 1;
+		BarStatus status = 2;
+	}
+	Meta meta = 1;
+	string bar = 2;
+	repeated int32 baz = 3 [packed=true];
+	map<int32, string> my_map = 4;
+	oneof either {
+		string bar = 2;
+		int32 baz = 3;
+	}
+}
