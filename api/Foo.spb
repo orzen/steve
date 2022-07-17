@@ -1,0 +1,21 @@
+operations Foo = "get,set,delete,list";
+plural Foo = "Foos";
+message Foo {
+	message Meta {
+		int32 id = 1;
+	}
+	Meta meta = 1;
+	string bar = 2;
+	int32 baz = 3;
+}
+
+operations Bar = "set,delete";
+plural Bar = "Bars";
+message Bar {
+	message Meta {
+		int32 id = 1;
+	}
+	Meta meta = 1;
+	string bar = 2;
+	int32 baz = 3;
+}
